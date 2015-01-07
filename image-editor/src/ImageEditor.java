@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -49,13 +50,38 @@ public class ImageEditor {
                         pixel.emboss(embossNum(pixel,picture[i-1][k-1]));
                     }
                 } else if(type.equals("motionblur")){
-                    motionBlur(blurNum);
+                    if(blurNum < 1){
+                        throw new IOException();
+                    }
+                    pixel.motionBlur(blur(getBlurPixels(i, k, blurNum)));
                 }
                 else{
                     throw new IOException();
                 }
             }
         }
+    }
+
+    private Pixel blur(ArrayList<Pixel> blurPixels) {
+        int reds = 0;
+        int greens = 0;
+        int blues = 0;
+        int len = blurPixels.size();
+        for(Pixel p : blurPixels){
+            reds += p.red;
+            greens += p.green;
+            blues += p.blue;
+        }
+        return new Pixel(reds/len,greens/len,blues/len);
+    }
+
+    private ArrayList<Pixel> getBlurPixels(int i, int k, int blurNum) {
+        ArrayList<Pixel> list = new ArrayList<Pixel>();
+        int blur =  k + blurNum >= width ? width - k : blurNum;
+        for(int j = blur - 1; j >= 0; j--){
+            list.add(picture[i][k+j]);
+        }
+        return list;
     }
 
     private int embossNum(Pixel p1, Pixel p2) {
@@ -83,26 +109,6 @@ public class ImageEditor {
         }
         out.write(outPut.toString());
         out.close();
-    }
-
-    private void motionBlur(int arg) {
-
-    }
-
-    private void grayscale() {
-        for(Pixel[] row:picture){
-            for(Pixel pixel:row){
-                pixel.grayscale();
-            }
-        }
-    }
-
-    private void invert() {
-        for(Pixel[] row: picture){
-            for(Pixel pixel : row){
-                pixel.inverse();
-            }
-        }
     }
 
     private void generatePic() {
@@ -163,6 +169,12 @@ public class ImageEditor {
 
         public void emboss(int i) {
             this.red=this.green=this.blue=i;
+        }
+
+        public void motionBlur(Pixel p) {
+            this.red = p.red;
+            this.green = p.green;
+            this.blue = p.blue;
         }
     }
 }
