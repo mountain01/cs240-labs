@@ -16,14 +16,15 @@ public class myTrie implements Trie {
     @Override
     public void add(String word) {
         Node temp = root;
-        for(char c:word.toLowerCase().toCharArray()){
-            if(temp.nodes[c] == null){
-                temp.nodes[c] = new Node();
+        for (char c : word.toLowerCase().toCharArray()) {
+            int index = c -'a';
+            if (temp.nodes[index] == null) {
+                temp.nodes[index] = new Node();
                 nodeCount++;
             }
-            temp = temp.nodes[c];
+            temp = temp.nodes[index];
         }
-        temp.setValue(temp.getValue()+1);
+        temp.setValue(temp.getValue() + 1);
         wordCount++;
     }
 
@@ -38,8 +39,9 @@ public class myTrie implements Trie {
     public Node find(String word) {
         Node temp = root;
         for(char c : word.toLowerCase().toCharArray()){
-            if(temp.nodes[c] != null){
-                temp = temp.nodes[c];
+            int index = c-'a';
+            if(temp.nodes[index] != null){
+                temp = temp.nodes[index];
             } else {
                 return null;
             }
