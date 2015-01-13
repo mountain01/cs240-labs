@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * Created by Matt on 1/10/2015.
  */
-public class myTrie implements Trie {
+public class myTrie implements ITrie {
 
     private Node root = new Node();
     private int wordCount=0;
@@ -116,7 +116,7 @@ public class myTrie implements Trie {
         return string;
     }
 
-    public class Node implements Trie.Node {
+    public class Node implements ITrie.Node {
 
         private Node[] nodes = new Node[26];
         private int wordCount = 0;
