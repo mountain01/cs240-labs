@@ -9,7 +9,7 @@ import java.util.*;
  */
 public class Spell implements SpellCorrector {
 
-    private Trie dictionary = new myTrie();
+    private ITrie dictionary = new myTrie();
     /**
      * Tells this <code>SpellCorrector</code> to use the given file as its dictionary
      * for generating suggestions.
@@ -36,7 +36,7 @@ public class Spell implements SpellCorrector {
      */
     @Override
     public String suggestSimilarWord(String inputWord) throws NoSimilarWordFoundException {
-        Trie.Node temp = dictionary.find(inputWord);
+        ITrie.INode temp = dictionary.find(inputWord);
         if(temp != null){
             return inputWord;
         }
@@ -76,7 +76,7 @@ public class Spell implements SpellCorrector {
 
     private Map<String, Integer> validate(ArrayList<String> list) {
         Map<String,Integer> map = new HashMap<String, Integer>();
-        Trie.Node temp;
+        ITrie.INode temp;
         for(String word :list){
             temp = dictionary.find(word);
             if(temp != null){

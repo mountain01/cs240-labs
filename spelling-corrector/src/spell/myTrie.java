@@ -64,7 +64,7 @@ public class myTrie implements ITrie {
      * or null if the word is not in the trie
      */
     @Override
-    public Node find(String word) {
+    public INode find(String word) {
         Node temp = root;
         for(char c : word.toLowerCase().toCharArray()){
             int index = c-'a';
@@ -116,7 +116,7 @@ public class myTrie implements ITrie {
         return string;
     }
 
-    public class Node implements ITrie.Node {
+    public class Node implements ITrie.INode {
 
         private Node[] nodes = new Node[26];
         private int wordCount = 0;
