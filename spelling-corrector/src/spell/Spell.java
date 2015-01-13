@@ -7,7 +7,7 @@ import java.util.*;
 /**
  * Created by Matt on 1/10/2015.
  */
-public class Spell implements SpellCorrector {
+public class Spell implements ISpellCorrector {
 
     private ITrie dictionary = new myTrie();
     /**

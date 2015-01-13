@@ -116,7 +116,7 @@ public class myTrie implements ITrie {
         return string;
     }
 
-    public class Node implements ITrie.INode {
+    public class Node implements INode {
 
         private Node[] nodes = new Node[26];
         private int wordCount = 0;
