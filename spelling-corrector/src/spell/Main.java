@@ -27,6 +27,7 @@ public class Main {
 		String suggestion = corrector.suggestSimilarWord(inputWord);
 		
 		System.out.println("Suggestion is: " + suggestion);
+        System.out.println(corrector.toString());
 	}
 
 }
