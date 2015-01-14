@@ -18,7 +18,7 @@ public class myTrie implements ITrie {
 
         myTrie myTrie = (myTrie) o;
 
-        if (nodeCount != myTrie.nodeCount && wordCount != myTrie.wordCount){
+        if (nodeCount == myTrie.nodeCount && wordCount == myTrie.wordCount){
             return root.equals(myTrie.root);
         }
         else {
