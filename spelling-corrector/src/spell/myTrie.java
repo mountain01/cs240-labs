@@ -108,7 +108,7 @@ public class myTrie implements ITrie {
         for(Node node:root.nodes){
             if(node != null){
                 if(node.wordCount >0){
-                    string.append(node.word).append(" ").append(node.wordCount).append("\n");
+                    string.append(node.word).append("\n");
                 }
                 string.append(getString(node));
             }
