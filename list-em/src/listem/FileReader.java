@@ -13,7 +13,7 @@ abstract public class FileReader {
         if (fileList != null) {
             for (File file : fileList) {
                 if (file.isDirectory() && recursive) {
-                    readFile(directory, pattern, recursive);
+                    readFile(file, pattern, recursive);
                 } else if (file.isFile() && file.getName().matches(pattern)) {
                     Scanner in = null;
                     try {
