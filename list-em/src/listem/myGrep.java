@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 /**
  * Created by Matt on 1/13/2015.
  */
-public class myGrep extends FileReader implements Grep {
+public class myGrep extends FileReader implements IGrep {
 
     private Map<File,List<String>> result;
     String searchString;

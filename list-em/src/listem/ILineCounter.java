@@ -3,7 +3,7 @@ package listem;
 import java.io.File;
 import java.util.Map;
 
-public interface LineCounter {
+public interface ILineCounter {
 
     /**
      * Count the number of lines in files whose names match a given pattern.

@@ -8,7 +8,7 @@ import java.util.Scanner;
 /**
  * Created by Matt on 1/14/2015.
  */
-public class myLineCount extends FileReader implements LineCounter {
+public class myLineCount extends FileReader implements ILineCounter {
 
     private Map<File, Integer> result;
     /**

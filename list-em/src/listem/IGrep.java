@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.List;
 import java.util.Map;
 
-public interface Grep {
+public interface IGrep {
 
     /**
      * Find lines that match a given pattern in files whose names match another
