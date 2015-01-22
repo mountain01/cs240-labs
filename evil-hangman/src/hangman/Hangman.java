@@ -63,8 +63,12 @@ public class Hangman {
 
         }
         if(!win){
+            for(String string:words){
+                word = string;
+                break;
+            }
             System.out.println("You lose!");
-            System.out.println("The word was: "+"");
+            System.out.println("The word was: "+word);
         }else{
             System.out.println("You Win!\nThe word was "+word);
         }
